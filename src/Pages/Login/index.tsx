@@ -4,6 +4,7 @@ import capa from "../../assets/Picture.png"
 import styles from "./styles.module.css"
 import z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useNavigate } from "react-router-dom"
 
 const userSchema = z.object({
     email: z.string().nonempty('O e-mail não pode ser vazio').refine(value => z.string().email().safeParse(value).success, {message: 'O e-mail não é válido'}),
@@ -17,11 +18,13 @@ export default function Login() {
         resolver: zodResolver(userSchema)
     })
 
+    const navigate = useNavigate()
+
     async function createUser(data: User) {
         try{
             await new Promise(resolve => setTimeout(resolve, 2000))
             console.log(data)
-            throw new Error('Erro ao criar usuário')
+            navigate('/home')
         }catch{
             setError('root', {
                 message: "Erro ao criar usuário"
@@ -46,7 +49,7 @@ export default function Login() {
                         />
                         {errors.email && <span>{errors.email.message}</span>}
 
-                        <label htmlFor="password">Senha</label>
+                        <label htmlFor="password" id={styles.passwordLabel}>Senha</label>
                         <input type="password" className={styles.input} 
                             placeholder="Digite aqui sua senha" {...register('password')}
                         />

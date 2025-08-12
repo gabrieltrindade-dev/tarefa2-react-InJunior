@@ -2,15 +2,15 @@
 
 
 .loginContainer {
-    display: flex;
-    height: 1024px;
-    width: 100%;
-    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  display: flex;
+  height: 1024px;
+  width: 100%;
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
 }
 
 #logo {
-    width: 120px;
-    height: 78px;
+  width: 120px;
+  height: 78px;
 }
 
 .ladoInfo {
@@ -63,7 +63,7 @@ form label {
   margin-top: 10px;
 }
 
-form label:nth-of-type(2) {
+#passwordLabel {
   margin-top: 40px;
 }
 
@@ -105,8 +105,12 @@ form label:nth-of-type(2) {
   background-color: #fff;
   color: rgba(98, 81, 221, 1);
   border: 1px solid rgba(98, 81, 221, 1);
-
   margin-top: 10px;
+}
+
+.botaoCadastro:hover {
+  background-color: rgba(98, 81, 221, 1);
+  color: #fff;
 }
 
 .botaoEntrar:disabled {
