@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+
+
+.loginContainer {
+    display: flex;
+    height: 1024px;
+    width: 100%;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+}
+
+#logo {
+    width: 120px;
+    height: 78px;
+}
+
+.ladoInfo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 80px;
+}
+
+
+.infosTexto {
+  margin-top: 111px;
+  width: 100%;
+  padding-left: 160px;
+  padding-right: 160px;
+  box-sizing: border-box;
+}
+
+.boasVindas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.boasVindas h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(9, 9, 55, 0.6);
+}
+
+.boasVindas p {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(9, 9, 55, 1);
+}
+
+form {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form label {
+  font-size: 20px;
+  font-weight: 600;
+  color:  rgba(9, 9, 55, 1);
+  margin-top: 10px;
+}
+
+form label:nth-of-type(2) {
+  margin-top: 40px;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 16px;
+  background-color:rgba(244, 244, 255, 1);
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.input::placeholder {
+  color:  rgba(9, 9, 55, 0.4);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.botaoEntrar,
+.botaoCadastro {
+  width: 100%;
+  height: 56px;
+  border-radius: 4px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botaoEntrar {
+  background-color: rgba(239, 107, 74, 1);
+  color: #fff;
+  border: none;
+  margin-top: 145px;
+}
+
+.botaoCadastro {
+  background-color: #fff;
+  color: rgba(98, 81, 221, 1);
+  border: 1px solid rgba(98, 81, 221, 1);
+
+  margin-top: 10px;
+}
+
+.botaoEntrar:disabled {
+  background-color: #f0a28c;
+  cursor: not-allowed;
+}
+
+form span {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
