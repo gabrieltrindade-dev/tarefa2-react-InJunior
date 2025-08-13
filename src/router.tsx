@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "themes",
+        path: "themes/:genero",
         element: <Themes />
       },
       {
