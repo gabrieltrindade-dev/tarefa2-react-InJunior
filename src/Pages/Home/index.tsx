@@ -53,7 +53,7 @@ export default function Home() {
           <section key={genero} className={styles.secaoGenero}>
             <div className={styles.cabecalhoSecao}>
               <h2 className={styles.tituloGenero}>{genero}</h2>
-              <Link to={`/genero/${genero}`} className={styles.verMaisLink}>
+              <Link to={`/themes/${genero}`} className={styles.verMaisLink}>
                 Ver mais
               </Link>
             </div>
