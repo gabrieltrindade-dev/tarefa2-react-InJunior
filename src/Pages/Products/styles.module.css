@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+
+.container {
+    padding-left: 60px;
+    padding-right: 242px;
+    max-width: 1920px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+}
+
+.mainContent {
+    width: 100%;
+}
+
+.backLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    color: rgba(9, 9, 55, 1);
+    margin-top: 50px; 
+    margin-bottom: 40px; 
+}
+
+.backArrow {
+    width: 12px;
+    height: 12px;
+    margin-right: 0.5rem;
+}
+
+.bookLayout {
+    display: flex;
+    align-items: flex-start; 
+    gap: 80px; 
+}
+
+.bookCoverContainer {
+    width: 420px;
+    height: 570px;
+    background-color: rgba(244, 244, 255, 1);
+    border: 1px solid rgba(9, 9, 55, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-bottom: 242px;
+}
+
+.bookCoverImage {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px 0px rgba(98, 81, 221, 0.2);
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.infoSection {
+    margin-bottom: 60px;
+    display: flex;
+    padding-top: 10px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.bookTitle {
+    font-size: 40px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+}
+
+.bookAuthor {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 0.5rem;
+}
+
+.infoSectionSynopsis {
+    width: 820px;
+}
+
+.synopsisTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px 0; 
+    color: rgba(9, 9, 55, 1);
+}
+
+.synopsisText {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: rgba(9, 9, 55, 0.6);
+    text-align: justify;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 111px;
+}
+
+.addToCartButton {
+    background-color: rgba(239, 107, 74, 1);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 400px;
+    height: 60px;
+    cursor: pointer;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px; 
+}
+
+.bookPrice {
+    font-size: 20px;
+    font-weight: 700; 
+    color: #fff; 
+}
+
+.buttonText {
+    font-size: 20px;
+    font-weight: 600;
+}
