@@ -50,7 +50,6 @@ export default function Themes() {
           />
         </div>
 
-        {/* Cabeçalho da seção */}
         <div className={styles.headerGenero}>
           <Link to="/home" className={styles.backLink}>
             <img src={sinalMenor} alt="Voltar para a Home" className={styles.arrowIcon} />
@@ -58,7 +57,6 @@ export default function Themes() {
           </Link>
         </div>
 
-        {/* Lista de livros */}
         <div className={styles.listaLivros}>
           {livrosFiltrados.length > 0 ? (
             livrosFiltrados.map((livro) => (
