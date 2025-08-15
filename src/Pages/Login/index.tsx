@@ -56,7 +56,7 @@ export default function Login() {
                         {errors.password && <span>{errors.password.message}</span>}
 
                         <button disabled={isSubmitting} className={styles.botaoEntrar}>{isSubmitting ? 'Carregando...': 'Entrar'}</button>
-                        <button className={styles.botaoCadastro}>Cadastre-se</button>
+                        <button  type="button" className={styles.botaoCadastro}>Cadastre-se</button>
                         {errors.root && <span>{errors.root.message}</span>}
                     </form>
                 </div>
