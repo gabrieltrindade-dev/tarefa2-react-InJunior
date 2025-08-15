@@ -20,7 +20,8 @@ header {
   gap: 16px;
 }
 
-.fundoImg {
+.btnPessoa,
+.btnCarrinho {
   width: 50px;
   height: 50px;
   background-color: rgba(244, 244, 255, 1);
@@ -29,15 +30,19 @@ header {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &:hover{
+    background-color: #e0e0e0;
+  }
 }
 
-.fundoImg:hover {
-  background-color: #e0e0e0;
+.btnPessoa img {
+  width: 16px;
+  height: 20px;
 }
 
-.fundoImg img {
-  width: 24px;
-  height: 24px;
+.btnCarrinho img {
+  width: 20px;
+  height: 20px;
 }
 
 .links > a img {

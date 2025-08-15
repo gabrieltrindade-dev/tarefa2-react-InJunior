@@ -10,8 +10,8 @@ export default function Header() {
             <nav className={styles.links}>
                 <Link to="/home"> <img src={logo} alt="Logo" /> </Link>
                 <div className={styles.icones}>
-                    <Link to="/" className={styles.fundoImg}> <img src={pessoa} alt="Icone pessoa" /> </Link>
-                    <Link to="/cart" className={styles.fundoImg}> <img src={carrinho} alt="Icone carrinho" /> </Link>
+                    <Link to="/" className={styles.btnPessoa}> <img src={pessoa} alt="Icone pessoa" /> </Link>
+                    <Link to="/cart" className={styles.btnCarrinho}> <img src={carrinho} alt="Icone carrinho" /> </Link>
                 </div>
             </nav>
         </header>
