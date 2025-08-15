@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles.module.css";
 import sinalMenor from "../../assets/sinalmenor.png";
+import useCartStore from "../../stores/CartStore";
 
 interface Livro {
   id: number;
@@ -17,6 +18,7 @@ interface Livro {
 export default function Products() {
   const { id } = useParams<{ id: string }>();
   const [livro, setLivro] = useState<Livro | null>(null);
+  const { addToCart } = useCartStore();
 
   useEffect(() => {
     if (id) {
@@ -25,9 +27,18 @@ export default function Products() {
         .then((response) => {
           setLivro(response.data);
         })
-        .catch((error) => console.error("Erro ao buscar detalhes do livro: " + error));
+        .catch((error) =>
+          console.error("Erro ao buscar detalhes do livro: " + error)
+        );
     }
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (livro) {
+      addToCart(livro);
+      alert(`O livro "${livro.titulo}" foi adicionado ao seu carrinho!`);
+    }
+  };
 
   if (!livro) {
     return <div>Carregando...</div>;
@@ -40,10 +51,14 @@ export default function Products() {
           <img src={sinalMenor} alt="Voltar" className={styles.imagemVoltar} />
           Detalhes do Livro
         </Link>
-        
+
         <div className={styles.livroLayout}>
           <div className={styles.espaçoCapa}>
-            <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
+            <img
+              src={livro.capa}
+              alt={`Capa do livro ${livro.titulo}`}
+              className={styles.capaLivro}
+            />
           </div>
 
           <div className={styles.livroInfo}>
@@ -58,10 +73,12 @@ export default function Products() {
             </div>
           </div>
         </div>
-        <button className={styles.botao}>
-                <p className={styles.preçoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                <span className={styles.textoBotao}>Adicionar ao carrinho</span>
-          </button>
+        <button className={styles.botao} onClick={handleAddToCart}>
+          <p className={styles.preçoLivro}>
+            R$ {livro.preco.toFixed(2).replace(".", ",")}
+          </p>
+          <span className={styles.textoBotao}>Adicionar ao carrinho</span>
+        </button>
       </div>
     </div>
   );
