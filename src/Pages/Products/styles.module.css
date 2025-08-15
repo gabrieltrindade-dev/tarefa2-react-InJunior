@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900&family=Manrope:wght@200..800&display=swap');
 
 .container {
-    padding-left: 60px;
-    padding-right: 242px;
-    max-width: 1920px;
+    width: 90%;
     margin: 0 auto;
     box-sizing: border-box;
     font-family: 'Manrope', Arial, Helvetica, sans-serif;
@@ -33,6 +31,8 @@
 
 .livroLayout {
     display: flex;
+    margin-bottom: 120px;
+    
     align-items: flex-start; 
     gap: 80px; 
 }
@@ -46,7 +46,7 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin-bottom: 242px;
+   
 }
 
 .capaLivro {
@@ -83,9 +83,6 @@
     margin-top: 0.5rem;
 }
 
-.Sinopse {
-    width: 820px;
-}
 
 .tituloSinopse {
     font-size: 24px;
@@ -113,6 +110,7 @@
     color: #fff;
     border: none;
     border-radius: 4px;
+    justify-self: flex-end;
     width: 400px;
     height: 60px;
     cursor: pointer;
@@ -121,6 +119,7 @@
     align-items: center;
     justify-content: space-between; 
     padding: 0 20px; 
+    margin-bottom: 64px;
 }
 
 .preçoLivro {

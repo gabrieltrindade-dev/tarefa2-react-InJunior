@@ -56,14 +56,12 @@ export default function Products() {
               <h3 className={styles.tituloSinopse}>Sinopse</h3>
               <p className={styles.textoSinopse}>{livro.sinopse}</p>
             </div>
-            <div className={styles.botaoEspaço}>
-              <button className={styles.botao}>
-                <p className={styles.preçoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                <span className={styles.textoBotao}>Adicionar ao carrinho</span>
-              </button>
-            </div>
           </div>
         </div>
+        <button className={styles.botao}>
+                <p className={styles.preçoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
+                <span className={styles.textoBotao}>Adicionar ao carrinho</span>
+          </button>
       </div>
     </div>
   );
