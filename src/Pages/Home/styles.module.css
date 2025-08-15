@@ -35,9 +35,8 @@
 }
 
 .secaoGenero {
-  width: 1320px;
   margin: 0 auto 92px;
-  padding: 0 60px;
+  padding: 0px 20px;
 }
 
 .cabecalhoSecao {
@@ -45,7 +44,7 @@
   justify-content: space-between;
   align-items: center;
   height: 44px;
-  width: 100%;
+  width: 99%;
   margin-bottom: 20px;
 }
 
@@ -69,7 +68,6 @@
 }
 
 .cardLivro {
-  width: 320px;
   height: 200px;
   background-color: #F8F8F8;
   border-radius: 8px;
@@ -108,12 +106,14 @@
 .tituloLivro {
   font-size: 20px;
   font-weight: 600;
+  width: 150px;
   color: rgba(9, 9, 55, 1);
 }
 
 .autorLivro {
   font-size: 16px;
   font-weight: 600;
+  width: 100px;
   color: rgba(9, 9, 55, 0.6);
   margin: 5px 0;
 }
