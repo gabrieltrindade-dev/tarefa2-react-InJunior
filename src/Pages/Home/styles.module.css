@@ -8,20 +8,22 @@
 .espaçoBanner {
   width: 1320px;
   height: 400px;
+  display: flex;
+  justify-content: center;
   margin: 40px auto 92px;
   position: relative;
   border-radius: 8px;
 }
 
 .imagemBanner {
-  width: 100%;
+  width: 96%;
   height: 100%;
 }
 
 .textoBanner {
   position: absolute;
   top: 80px;
-  left: 60px;
+  left: 80px;
   color: #fff;
   font-size: 56px;
   font-weight: 600;
@@ -36,7 +38,7 @@
 
 .secaoGenero {
   margin: 0 auto 92px;
-  padding: 0px 20px;
+  padding: 0px 40px;
 }
 
 .cabecalhoSecao {
@@ -69,6 +71,7 @@
 
 .cardLivro {
   height: 200px;
+  width: 300px;
   background-color: #F8F8F8;
   border-radius: 8px;
   text-decoration: none;
