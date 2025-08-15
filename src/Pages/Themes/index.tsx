@@ -62,13 +62,14 @@ export default function Themes() {
               <Link key={livro.id} to={`/livro/${livro.id}`} className={styles.cardLivro}>
                 <div className={styles.cardContent}>
                   <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
-                  <div className={styles.infoLivro}>
-                    <div className={styles.textosInfo}>
-                      <h3 className={styles.tituloLivro}>{livro.titulo}</h3>
-                      <p className={styles.autorLivro}>{livro.autor}</p>
-                    </div>
+                  
+                  <h3 className={styles.tituloLivro}>{livro.titulo}</h3> 
+                  
+                  <div className={styles.infoLivro}> 
+                    <p className={styles.autorLivro}>{livro.autor}</p>
                     <p className={styles.precoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
                   </div>
+                  
                 </div>
               </Link>
             ))
