@@ -37,22 +37,21 @@ export default function Themes() {
 
   return (
     <>
-      <div className={styles.mainContainer}>
-        {/* Barra de pesquisa */}
-        <div className={styles.searchContainer}>
-          <img src={lupa} alt="Ícone de pesquisa" className={styles.searchIcon} />
+      <div className={styles.main}>
+        <div className={styles.pesquisa}>
+          <img src={lupa} alt="Ícone de pesquisa" className={styles.lupa} />
           <input
             type="text"
             placeholder="Pesquisar por título"
             value={termoPesquisa}
             onChange={(e) => setTermoPesquisa(e.target.value)}
-            className={styles.searchInput}
+            className={styles.inputPesquisa}
           />
         </div>
 
         <div className={styles.headerGenero}>
-          <Link to="/home" className={styles.backLink}>
-            <img src={sinalMenor} alt="Voltar para a Home" className={styles.arrowIcon} />
+          <Link to="/home" className={styles.irHome}>
+            <img src={sinalMenor} alt="Voltar para a Home" className={styles.setaVoltar} />
             {genero}
           </Link>
         </div>

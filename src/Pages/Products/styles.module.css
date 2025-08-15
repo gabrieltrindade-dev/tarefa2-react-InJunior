@@ -9,11 +9,11 @@
     font-family: 'Manrope', Arial, Helvetica, sans-serif;
 }
 
-.mainContent {
+.main {
     width: 100%;
 }
 
-.backLink {
+.irHome {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -25,19 +25,19 @@
     margin-bottom: 40px; 
 }
 
-.backArrow {
+.imagemVoltar {
     width: 12px;
     height: 12px;
     margin-right: 0.5rem;
 }
 
-.bookLayout {
+.livroLayout {
     display: flex;
     align-items: flex-start; 
     gap: 80px; 
 }
 
-.bookCoverContainer {
+.espaçoCapa {
     width: 420px;
     height: 570px;
     background-color: rgba(244, 244, 255, 1);
@@ -49,14 +49,14 @@
     margin-bottom: 242px;
 }
 
-.bookCoverImage {
+.capaLivro {
     width: 300px;
     height: 450px;
     object-fit: cover;
     box-shadow: 0px 4px 8px 0px rgba(98, 81, 221, 0.2);
 }
 
-.bookInfo {
+.livroInfo {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -70,31 +70,31 @@
     flex-direction: column;
 }
 
-.bookTitle {
+.tituloLivro {
     font-size: 40px;
     font-weight: 600;
     color: rgba(0, 0, 0, 1);
 }
 
-.bookAuthor {
+.autorLivro {
     font-size: 32px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
     margin-top: 0.5rem;
 }
 
-.infoSectionSynopsis {
+.Sinopse {
     width: 820px;
 }
 
-.synopsisTitle {
+.tituloSinopse {
     font-size: 24px;
     font-weight: 700;
     margin: 0 0 10px 0; 
     color: rgba(9, 9, 55, 1);
 }
 
-.synopsisText {
+.textoSinopse {
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
@@ -102,13 +102,13 @@
     text-align: justify;
 }
 
-.buttonContainer {
+.botaoEspaço {
     display: flex;
     justify-content: flex-end;
     margin-top: 111px;
 }
 
-.addToCartButton {
+.botao {
     background-color: rgba(239, 107, 74, 1);
     color: #fff;
     border: none;
@@ -123,13 +123,13 @@
     padding: 0 20px; 
 }
 
-.bookPrice {
+.preçoLivro {
     font-size: 20px;
     font-weight: 700; 
     color: #fff; 
 }
 
-.buttonText {
+.textoBotao {
     font-size: 20px;
     font-weight: 600;
 }

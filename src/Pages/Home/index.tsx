@@ -37,10 +37,10 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.mainContainer}>
-        <div className={styles.bannerContainer}>
-          <img src={banner} alt="Banner" className={styles.bannerImage} />
-          <p className={styles.bannerText}>
+      <div className={styles.main}>
+        <div className={styles.espaçoBanner}>
+          <img src={banner} alt="Banner" className={styles.imagemBanner} />
+          <p className={styles.textoBanner}>
             <span className={styles.destaqueTexto}>25% de desconto</span>
             <br />
             nos livros do Paulo

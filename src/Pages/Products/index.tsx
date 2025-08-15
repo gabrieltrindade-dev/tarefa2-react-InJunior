@@ -35,31 +35,31 @@ export default function Products() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.mainContent}>
-        <Link to="/home" className={styles.backLink}>
-          <img src={sinalMenor} alt="Voltar" className={styles.backArrow} />
+      <div className={styles.main}>
+        <Link to="/home" className={styles.irHome}>
+          <img src={sinalMenor} alt="Voltar" className={styles.imagemVoltar} />
           Detalhes do Livro
         </Link>
         
-        <div className={styles.bookLayout}>
-          <div className={styles.bookCoverContainer}>
-            <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.bookCoverImage} />
+        <div className={styles.livroLayout}>
+          <div className={styles.espaçoCapa}>
+            <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
           </div>
 
-          <div className={styles.bookInfo}>
+          <div className={styles.livroInfo}>
             <div className={styles.infoSection}>
-              <h1 className={styles.bookTitle}>{livro.titulo}</h1>
-              <h2 className={styles.bookAuthor}>{livro.autor}</h2>
+              <h1 className={styles.tituloLivro}>{livro.titulo}</h1>
+              <h2 className={styles.autorLivro}>{livro.autor}</h2>
             </div>
 
-            <div className={styles.infoSectionSynopsis}>
-              <h3 className={styles.synopsisTitle}>Sinopse</h3>
-              <p className={styles.synopsisText}>{livro.sinopse}</p>
+            <div className={styles.Sinopse}>
+              <h3 className={styles.tituloSinopse}>Sinopse</h3>
+              <p className={styles.textoSinopse}>{livro.sinopse}</p>
             </div>
-            <div className={styles.buttonContainer}>
-              <button className={styles.addToCartButton}>
-                <p className={styles.bookPrice}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                <span className={styles.buttonText}>Adicionar ao carrinho</span>
+            <div className={styles.botaoEspaço}>
+              <button className={styles.botao}>
+                <p className={styles.preçoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
+                <span className={styles.textoBotao}>Adicionar ao carrinho</span>
               </button>
             </div>
           </div>
