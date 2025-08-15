@@ -8,6 +8,10 @@
   font-family: 'Manrope', Arial, Helvetica, sans-serif;
 }
 
+.capa {
+  width: 50%;
+}
+
 #logo {
   width: 120px;
   height: 78px;
@@ -53,7 +57,7 @@ form {
   margin-top: 80px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 400px;
 }
 
 form label {

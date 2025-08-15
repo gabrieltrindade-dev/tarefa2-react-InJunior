@@ -34,7 +34,7 @@ export default function Login() {
 
     return (
         <main className={styles.main}>
-            <img src={capa} alt="Capa"/>
+            <img id={styles.capa}src={capa} alt="Capa"/>
             <div className={styles.ladoInfo}>
                 <img id={styles.logo} src={logo} alt="Logo" />
                 <div className={styles.infosTexto}>
