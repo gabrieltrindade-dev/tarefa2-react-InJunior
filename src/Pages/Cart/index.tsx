@@ -1,19 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import carrinhoIcon from "../../assets/carrinho.png";
 import lixeiraIcon from "../../assets/lixeira.png";
 import useCartStore from "../../stores/CartStore";
-
-interface Livro {
-    id: number;
-    titulo: string;
-    autor: string;
-    genero: string;
-    preco: number;
-    sinopse: string;
-    capa: string;
-}
+import CardLivro from "../../Components/CardLivro";
 
 export default function Cart() {
     const { cart, removeFromCart } = useCartStore();
@@ -45,21 +35,11 @@ export default function Cart() {
                             <h2 className={styles.subtitulo}>Livros no Carrinho</h2>
                             <div className={styles.listaLivros}>
                                 {cart.map((livro) => (
-                                    <Link key={livro.id} to={`/livro/${livro.id}`} className={styles.cardLivro}>
+                                    <CardLivro key={livro.id} livro={livro}>
                                         <button onClick={(e) => removerDoCarrinho(e, livro.id)} className={styles.botaoRemover}>
                                             <img src={lixeiraIcon} alt="Remover livro" className={styles.lixeiraIcon} />
                                         </button>
-                                        <div className={styles.cardContent}>
-                                            <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
-                                            
-                                            <h3 className={styles.tituloLivro}>{livro.titulo}</h3>
-                                            
-                                            <div className={styles.infoLivro}>
-                                                <p className={styles.autorLivro}>{livro.autor}</p>
-                                                <p className={styles.precoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                                            </div>
-                                        </div>
-                                    </Link>
+                                    </CardLivro>
                                 ))}
                             </div>
                             
