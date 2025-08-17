@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import banner from "../../assets/Banner.png";
+import { useDados } from "../../hooks/useDados";
+import SecaoLivrosHome from "../../Components/SecaoLivrosHome";
 
 interface Livro {
   id: number;
@@ -15,25 +15,30 @@ interface Livro {
 }
 
 export default function Home() {
+  const { data: livros, loading, error } = useDados<Livro[]>("http://localhost:3000/livros");
   const [livrosPorGenero, setLivrosPorGenero] = useState<{
     [key: string]: Livro[];
   }>({});
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/livros")
-      .then((response) => {
-        const livrosAgrupados: { [key: string]: Livro[] } = {};
-        response.data.forEach((livro: Livro) => {
-          if (!livrosAgrupados[livro.genero]) {
-            livrosAgrupados[livro.genero] = [];
-          }
-          livrosAgrupados[livro.genero].push(livro);
-        });
-        setLivrosPorGenero(livrosAgrupados);
-      })
-      .catch((error) => console.error("Algo deu errado: " + error));
-  }, []);
+    if (livros) {
+      const livrosAgrupados: { [key: string]: Livro[] } = {};
+      livros.forEach((livro) => {
+        if (!livrosAgrupados[livro.genero]) {
+          livrosAgrupados[livro.genero] = [];
+        }
+        livrosAgrupados[livro.genero].push(livro);
+      });
+      setLivrosPorGenero(livrosAgrupados);
+    }
+  }, [livros]);
+
+  if (loading) {
+    return <div>Carregando livros...</div>;
+  }
+  if (error) {
+    return <div>Ocorreu um erro: {error}</div>;
+  }
 
   return (
     <>
@@ -50,28 +55,11 @@ export default function Home() {
         </div>
 
         {Object.keys(livrosPorGenero).map((genero) => (
-          <section key={genero} className={styles.secaoGenero}>
-            <div className={styles.cabecalhoSecao}>
-              <h2 className={styles.tituloGenero}>{genero}</h2>
-              <Link to={`/themes/${genero}`} className={styles.verMaisLink}>
-                Ver mais
-              </Link>
-            </div>
-            <div className={styles.listaLivros}>
-              {livrosPorGenero[genero].slice(0, 4).map((livro) => (
-                <Link key={livro.id} to={`/livro/${livro.id}`} className={styles.cardLivro}>
-                  <div className={styles.conteudoCard}>
-                    <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
-                    <div className={styles.detalhesLivro}>
-                      <h3 className={styles.tituloLivro}>{livro.titulo}</h3>
-                      <p className={styles.autorLivro}>{livro.autor}</p>
-                      <p className={styles.precoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
+          <SecaoLivrosHome
+            key={genero}
+            genero={genero}
+            livros={livrosPorGenero[genero]}
+          />
         ))}
       </div>
     </>
