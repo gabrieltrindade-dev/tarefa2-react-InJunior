@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import styles from "./styles.module.css";
-import lupa from '../../assets/Search.png'; 
-import sinalMenor from '../../assets/sinalmenor.png'; 
+import lupa from '../../assets/Search.png';
+import sinalMenor from '../../assets/sinalmenor.png';
+import { useDados } from "../../hooks/useDados";
+import CardLivro from "../../Components/CardLivro";
 
 interface Livro {
   id: number;
@@ -17,23 +18,21 @@ interface Livro {
 
 export default function Themes() {
   const { genero } = useParams<{ genero: string }>();
-  const [livros, setLivros] = useState<Livro[]>([]);
+  const { data: livros, loading, error } = useDados<Livro[]>(`http://localhost:3000/livros?genero=${genero}`);
   const [termoPesquisa, setTermoPesquisa] = useState("");
 
-  useEffect(() => {
-    if (genero) {
-      axios
-        .get(`http://localhost:3000/livros?genero=${genero}`)
-        .then((response) => {
-          setLivros(response.data);
-        })
-        .catch((error) => console.error("Erro ao buscar livros: " + error));
-    }
-  }, [genero]);
+  const livrosFiltrados = livros
+    ? livros.filter((livro) =>
+        livro.titulo.toLowerCase().includes(termoPesquisa.toLowerCase())
+      )
+    : [];
 
-  const livrosFiltrados = livros.filter((livro) =>
-    livro.titulo.toLowerCase().includes(termoPesquisa.toLowerCase())
-  );
+  if (loading) {
+    return <div>Carregando livros...</div>;
+  }
+  if (error) {
+    return <div>Ocorreu um erro: {error}</div>;
+  }
 
   return (
     <>
@@ -59,19 +58,7 @@ export default function Themes() {
         <div className={styles.listaLivros}>
           {livrosFiltrados.length > 0 ? (
             livrosFiltrados.map((livro) => (
-              <Link key={livro.id} to={`/livro/${livro.id}`} className={styles.cardLivro}>
-                <div className={styles.cardContent}>
-                  <img src={livro.capa} alt={`Capa do livro ${livro.titulo}`} className={styles.capaLivro} />
-                  
-                  <h3 className={styles.tituloLivro}>{livro.titulo}</h3> 
-                  
-                  <div className={styles.infoLivro}> 
-                    <p className={styles.autorLivro}>{livro.autor}</p>
-                    <p className={styles.precoLivro}>R$ {livro.preco.toFixed(2).replace(".", ",")}</p>
-                  </div>
-                  
-                </div>
-              </Link>
+              <CardLivro key={livro.id} livro={livro} />
             ))
           ) : (
             <p>Nenhum livro encontrado para este gênero ou termo de pesquisa.</p>

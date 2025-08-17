@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import styles from "./styles.module.css";
 import sinalMenor from "../../assets/sinalmenor.png";
 import useCartStore from "../../stores/CartStore";
+import { useDados } from "../../hooks/useDados";
 
 interface Livro {
   id: number;
@@ -17,21 +16,8 @@ interface Livro {
 
 export default function Products() {
   const { id } = useParams<{ id: string }>();
-  const [livro, setLivro] = useState<Livro | null>(null);
+  const { data: livro, loading, error } = useDados<Livro>(`http://localhost:3000/livros/${id}`);
   const { addToCart } = useCartStore();
-
-  useEffect(() => {
-    if (id) {
-      axios
-        .get(`http://localhost:3000/livros/${id}`)
-        .then((response) => {
-          setLivro(response.data);
-        })
-        .catch((error) =>
-          console.error("Erro ao buscar detalhes do livro: " + error)
-        );
-    }
-  }, [id]);
 
   const handleAddToCart = () => {
     if (livro) {
@@ -40,8 +26,11 @@ export default function Products() {
     }
   };
 
-  if (!livro) {
+  if (loading) {
     return <div>Carregando...</div>;
+  }
+  if (error) {
+    return <div>Ocorreu um erro: {error}</div>;
   }
 
   return (
@@ -55,27 +44,27 @@ export default function Products() {
         <div className={styles.livroLayout}>
           <div className={styles.espaçoCapa}>
             <img
-              src={livro.capa}
-              alt={`Capa do livro ${livro.titulo}`}
+              src={livro?.capa}
+              alt={`Capa do livro ${livro?.titulo}`}
               className={styles.capaLivro}
             />
           </div>
 
           <div className={styles.livroInfo}>
             <div className={styles.infoSection}>
-              <h1 className={styles.tituloLivro}>{livro.titulo}</h1>
-              <h2 className={styles.autorLivro}>{livro.autor}</h2>
+              <h1 className={styles.tituloLivro}>{livro?.titulo}</h1>
+              <h2 className={styles.autorLivro}>{livro?.autor}</h2>
             </div>
 
             <div className={styles.Sinopse}>
               <h3 className={styles.tituloSinopse}>Sinopse</h3>
-              <p className={styles.textoSinopse}>{livro.sinopse}</p>
+              <p className={styles.textoSinopse}>{livro?.sinopse}</p>
             </div>
           </div>
         </div>
         <button className={styles.botao} onClick={handleAddToCart}>
           <p className={styles.preçoLivro}>
-            R$ {livro.preco.toFixed(2).replace(".", ",")}
+            R$ {livro?.preco.toFixed(2).replace(".", ",")}
           </p>
           <span className={styles.textoBotao}>Adicionar ao carrinho</span>
         </button>
