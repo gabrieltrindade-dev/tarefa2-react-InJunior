@@ -1,0 +1,90 @@
+.secaoGenero {
+    margin: 0 auto 92px;
+    padding: 0px 40px;
+}
+
+.cabecalhoSecao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    width: 99%;
+    margin-bottom: 20px;
+}
+
+.tituloGenero {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(9, 9, 55, 1);
+}
+
+.verMaisLink {
+    color: rgba(239, 107, 74, 1);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.listaLivros {
+    display: flex;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.cardLivro {
+    height: 200px;
+    width: 300px;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+    border: 1px solid rgba(9, 9, 55, 0.1);
+}
+
+.conteudoCard {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.capaLivro {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px 0px rgba(98, 81, 221, 0.2);
+}
+
+.detalhesLivro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-left: 20px;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+.tituloLivro {
+    font-size: 20px;
+    font-weight: 600;
+    width: 150px;
+    color: rgba(9, 9, 55, 1);
+}
+
+.autorLivro {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100px;
+    color: rgba(9, 9, 55, 0.6);
+    margin: 5px 0;
+}
+
+.precoLivro {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(98, 81, 221, 1);
+    margin-top: auto;
+}
